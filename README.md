@@ -42,19 +42,21 @@ cmake --build .
 sudo cmake --install .
 ```
 
-### Uninstallation
+# Uninstallation
 ```
 To remove lex from your system, the build process automatically generates a convenient uninstall script for you.
 ```
-# 1. Navigate to the build directory
+### 1. Navigate to the build directory
+```
 cd build
-
+```
 # 2. Run the generated uninstall script with sudo
+```
 sudo ./uninstall.sh
-
-
 ```
 
+```
+```
 ## 🚀 Quick Start
 
 Once installed, you can start Lex from your terminal:
