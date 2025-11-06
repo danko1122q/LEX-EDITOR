@@ -1,25 +1,83 @@
-# Codegen
-resources/bundle.h
+# =========================
+#  Lex Project .gitignore
+# =========================
 
-# Common build directories
+# Build artifacts
 /build*/
+*/build*/
+cmake-build-*/
+bin/
+obj/
+out/
 
-# MacOS Finder files.
+# Compiled objects, libraries, and executables
+*.o
+*.so
+*.a
+*.exe
+*.dll
+*.dylib
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+Testing/
+CTestTestfile.cmake
+compile_commands.json
+compile_flags.txt
+
+# Code generation and resources
+resources/bundle.h
+resources/bundle.c
+resources/*.bin
+
+# Temporary or backup files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
+*.rej
+*~
+*.out
+
+# Themes or config cache
+themes/*.tmp
+themes/*.bak
+
+# OS-specific
 .DS_Store
+Thumbs.db
+desktop.ini
 
-# CLion
-/.idea/
-/cmake-build-*/
+# Editor & IDE configs
+.vscode/
+.idea/
+.cache/
+.history/
 
-# Visual Studio Code
-/.vscode/
-/.cache/
+# Shell or utility scripts cache
+*.sh~
+*.cmd~
+scripts/*.log
+scripts/*.tmp
 
-# Visual Studio
-/.vs/
-/out/
-CMakeSettings.json
+# Docs build or export artifacts
+docs/*.html
+docs/*.pdf
+docs/*.tmp
+docs/*.bak
 
-# LSP
-/compile_commands.json
-/compile_flags.txt
+# Optional test output
+/tests/*.gcda
+/tests/*.gcno
+/tests/*.gcov
+/tests/*.log
+
+# Backup & misc
+__pycache__/
+*.pyc
