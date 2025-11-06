@@ -1,10 +1,40 @@
----
-BasedOnStyle: Google
-AllowShortIfStatementsOnASingleLine: Never
-AllowShortLoopsOnASingleLine: 'false'
-BreakBeforeBraces: Attach
-IndentWidth: '4'
-PointerAlignment: Left
+```
+BasedOnStyle: LLVM
+IndentWidth: 2
+TabWidth: 2
 UseTab: Never
+ColumnLimit: 100
 
-...
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignTrailingComments: true
+PointerAlignment: Right
+
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpaceAfterTemplateKeyword: true
+
+SortIncludes: true
+IncludeBlocks: Regroup
+
+ReflowComments: true
+CommentPragmas: '^ IWYU pragma:'
+
+KeepEmptyLinesAtTheStartOfBlocks: false
+NamespaceIndentation: All
+AccessModifierOffset: -2
+
+Cpp11BracedListStyle: true
+BreakBeforeBinaryOperators: None
+BreakConstructorInitializersBeforeComma: true
+
+DerivePointerAlignment: false
+IndentCaseLabels: true
+AllowAllParametersOfDeclarationOnNextLine: true
+```
