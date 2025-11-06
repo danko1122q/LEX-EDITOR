@@ -50,13 +50,12 @@ To remove lex from your system, the build process automatically generates a conv
 ```
 cd build
 ```
-# 2. Run the generated uninstall script with sudo
+### 2. Run the generated uninstall script with sudo
 ```
 sudo ./uninstall.sh
 ```
 
-```
-```
+
 ## 🚀 Quick Start
 
 Once installed, you can start Lex from your terminal:
