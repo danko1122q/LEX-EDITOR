@@ -1,0 +1,25 @@
+# Codegen
+resources/bundle.h
+
+# Common build directories
+/build*/
+
+# MacOS Finder files.
+.DS_Store
+
+# CLion
+/.idea/
+/cmake-build-*/
+
+# Visual Studio Code
+/.vscode/
+/.cache/
+
+# Visual Studio
+/.vs/
+/out/
+CMakeSettings.json
+
+# LSP
+/compile_commands.json
+/compile_flags.txt

@@ -1,0 +1,51 @@
+NOTICE
+
+Lex Text Editor
+Copyright (c) 2025 [danko1122q]
+
+================================================================================
+
+IMPORTANT: This project is a rebranded fork of the nino text editor.
+
+nino Text Editor Copyright (c) [Year] [Original nino author/contributors] Licensed under the MIT License Source: https://github.com/[original-nino-repo]
+
+Lex is a rebranded version of the nino text editor. The core functionality,
+architecture, and codebase are derived from the nino project. We maintain
+the same MIT License and acknowledge that the original work belongs to the
+nino project contributors.
+
+Changes made in this fork (Lex):
+
+Rebranding from "nino" to "Lex"
+Updated documentation and README
+[List any other modifications you made]
+All credit for the original implementation goes to the nino project and its
+contributors.
+
+ORIGINAL INSPIRATION
+
+nano
+Copyright (c) 1999-2024 Free Software Foundation, Inc.
+
+Both nino and Lex are inspired by the design philosophy and user interface
+patterns established by the GNU nano text editor.
+
+DEPENDENCIES
+
+This software includes or depends on the following libraries:
+
+CMake - Cross-platform build system Copyright (c) 2000-2024 Kitware, Inc. and Contributors Licensed under the BSD 3-Clause License
+ncurses (if applicable) - Terminal handling library Copyright (c) 1998-2024 Free Software Foundation, Inc. Licensed under the MIT License
+[Add other dependencies from the original nino project]
+
+ACKNOWLEDGMENTS
+
+All original contributors to the nino project
+The nano community for establishing usability standards in terminal editors
+The open source community
+This rebranded fork maintains the original MIT License from nino.
+For the complete license text, see the LICENSE file in the root directory.
+
+For questions about this fork, please contact:
+[davaniko1122q]
+

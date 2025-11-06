@@ -1,0 +1,11 @@
+{
+    "name": "JSON",
+    "extensions": [
+        ".json"
+    ],
+    "keywords2": [
+        "true",
+        "false",
+        "null"
+    ]
+}
