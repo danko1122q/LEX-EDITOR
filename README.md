@@ -25,20 +25,21 @@ Lex is a **lightweight, simple, and terminal-based text editor**, inspired by GN
 * Make or other CMake-compatible build tool
 
 ### Build from Source
-
 ```bash
 # 1. Clone the repository
 git clone https://github.com/danko1122q/lex.git
 cd lex
 
-# 2. Create build directory
+# 2. Create and enter build directory
 mkdir build && cd build
 
-# 3. Configure and build
+# 3. Configure the project
 cmake ..
-cmake --build .
 
-# 4. (Optional) Install system-wide
+# 4. Build using all CPU cores
+make -j$(nproc)
+
+# 5. (Optional) Install system-wide
 sudo cmake --install .
 ```
 

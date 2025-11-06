@@ -1,0 +1,73 @@
+{
+  "extensions": [".md", ".markdown"],
+  "rules": [
+    {
+      "pattern": "^---[\\s\\S]*?---$",
+      "scope": "preprocessor"
+    },
+    {
+      "pattern": "^(#{1,6})\\s+.*$",
+      "scope": "keyword"
+    },
+    {
+      "pattern": "(\\*\\*|__)(?=\\S)([^*]+?)(?<=\\S)\\1",
+      "scope": "type"
+    },
+    {
+      "pattern": "(\\*|_)(?=\\S)([^*]+?)(?<=\\S)\\1",
+      "scope": "string"
+    },
+    {
+      "pattern": "`[^`]+`",
+      "scope": "number"
+    },
+    {
+      "pattern": "```[a-zA-Z0-9_+-]*[\\s\\S]*?```",
+      "scope": "function"
+    },
+    {
+      "pattern": "\\[([^\\]]+)\\]\\(([^\\)]+)\\)",
+      "scope": "constant"
+    },
+    {
+      "pattern": "!\\[([^\\]]*)\\]\\(([^\\)]+)\\)",
+      "scope": "constant"
+    },
+    {
+      "pattern": "^>.*$",
+      "scope": "comment"
+    },
+    {
+      "pattern": "^\\s*([-*+]\\s+).*$",
+      "scope": "keyword"
+    },
+    {
+      "pattern": "^(\\*{3,}|-{3,}|_{3,})$",
+      "scope": "preprocessor"
+    },
+    {
+      "pattern": "^- \\[[ xX]\\] .*$",
+      "scope": "number"
+    },
+    {
+      "pattern": "^\\|.*\\|$",
+      "scope": "type"
+    },
+    {
+      "pattern": "<[^>]+>",
+      "scope": "preprocessor"
+    },
+    {
+      "pattern": "\\\\.",
+      "scope": "string"
+    },
+    {
+      "pattern": "\\b(TODO|FIXME|NOTE|IMPORTANT|WARNING):",
+      "scope": "keyword"
+    },
+    {
+      "pattern": "(?<=\\n)(\\s{0,3}\\d+\\.)\\s+.*",
+      "scope": "keyword"
+    }
+  ]
+}

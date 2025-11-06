@@ -22,6 +22,7 @@ set (SYNTAX_FILES
     ${RESOURCE_DIR}/syntax/sql.json
     ${RESOURCE_DIR}/syntax/typescript.json
     ${RESOURCE_DIR}/syntax/zig.json
+    ${RESOURCE_DIR}/syntax/markdown.json
 )
 
 set (BUNDLER_SOURCE "${RESOURCE_DIR}/bundler.c")
