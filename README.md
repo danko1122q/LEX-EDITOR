@@ -58,7 +58,7 @@ The `uninstall` target is created using CMake. This is the recommended method to
 | Step | Command | Description |
 |------|---------|-------------|
 | 1. Enter Build Directory | `cd build` | Navigate to the directory where you ran the installation |
-| 2. Run Uninstall | `sudo make uninstall` | Uses the stored file list (`install_manifest.txt`) to remove each installed item. Requires root access |
+| 2. Run Uninstall | `sudo make uninstall .` | Uses the stored file list (`install_manifest.txt`) to remove each installed item. Requires root access |
 
 **Example:**
 
