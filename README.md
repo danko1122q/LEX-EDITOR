@@ -200,3 +200,4 @@ Commercial redistribution or resale is **not allowed** without written permissio
 
 * **Repository:** [github.com/danko1122q/LEX](https://github.com/danko1122q/LEX)
 * **Issues:** [Report a bug or request a feature](https://github.com/danko1122q/LEX/issues)
+* **Issues:** [pullrequest](https://github.com/danko1122q/LEX/pulls)
