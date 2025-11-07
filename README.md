@@ -36,7 +36,7 @@ Follow these steps to build and install Lex on your system:
 
 | Step | Command | Description |
 |------|---------|-------------|
-| 1. Clone Repository | `git clone https://github.com/danko1122q/lex.git && cd lex` | Clone the project and navigate to its directory |
+| 1. Clone Repository | `git clone https://github.com/danko1122q/LEX.git && cd LEX` | Clone the project and navigate to its directory |
 | 2. Create Build Directory | `mkdir build` | Create a build directory in the project root |
 | 3. Enter Build Directory | `cd build` | Navigate into the build directory |
 | 4. Configure Project | `cmake ..` | Generate makefiles and create `install_manifest.txt` |
@@ -63,7 +63,7 @@ The `uninstall` target is created using CMake. This is the recommended method to
 **Example:**
 
 ```bash
-cd /path/to/lex/build
+cd /path/to/LEX/build
 sudo make uninstall
 ```
 
@@ -83,7 +83,7 @@ The `purge` target removes the entire `build` directory (including CMake cache, 
 **Example:**
 
 ```bash
-cd /path/to/lex/build
+cd /path/to/LEX/build
 make purge
 ```
 
@@ -170,7 +170,7 @@ sudo dnf install gcc              # Fedora/RHEL
 **install_manifest.txt not found:** This file is created during installation. If it's missing, you may need to manually remove the executable:
 
 ```bash
-sudo rm /usr/local/bin/lex
+sudo rm /usr/local/bin/LEX
 ```
 
 **Permission denied:** Remember to use `sudo` for uninstall operations
@@ -198,6 +198,6 @@ Commercial redistribution or resale is **not allowed** without written permissio
 
 ## 🔗 Links
 
-* **Repository:** [github.com/danko1122q/lex](https://github.com/danko1122q/lex)
-* **Issues:** [Report a bug or request a feature](https://github.com/danko1122q/lex/issues)
-* **Discussions:** [Join the community](https://github.com/danko1122q/lex/discussions)
+* **Repository:** [github.com/danko1122q/LEX](https://github.com/danko1122q/LEX)
+* **Issues:** [Report a bug or request a feature](https://github.com/danko1122q/LEX/issues)
+* **Discussions:** [Join the community](https://github.com/danko1122q/LEX/discussions)
