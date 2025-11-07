@@ -111,16 +111,16 @@ If no filename is given, a new empty buffer will open.
 
 ## ⌨️ Keyboard Shortcuts
 
-| Shortcut   | Action           |
-| ---------- | ---------------- |
-| `Ctrl + O` | Save file        |
-| `Ctrl + X` | Exit editor      |
-| `Ctrl + G` | Show help        |
-| `Ctrl + W` | Search text      |
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl + O` | Save file |
+| `Ctrl + X` | Exit editor |
+| `Ctrl + G` | Show help |
+| `Ctrl + W` | Search text |
 | `Ctrl + K` | Cut current line |
-| `Ctrl + U` | Paste text       |
-| `Ctrl + Z` | Undo             |
-| `Ctrl + Y` | Redo             |
+| `Ctrl + U` | Paste text |
+| `Ctrl + Z` | Undo |
+| `Ctrl + Y` | Redo |
 
 ---
 
@@ -142,59 +142,62 @@ set helpinfo 0
 
 ### Installation Issues
 
-* **CMake not found:** Install CMake using your package manager
-  ```bash
-    # Debian/Ubuntu
-      sudo apt install cmake
-        
-          # Fedora/RHEL
-            sudo dnf install cmake
-              
-                # Arch Linux
-                  sudo pacman -S cmake
-                    ```
+**CMake not found:** Install CMake using your package manager
 
-                    * **Permission denied during install:** Make sure to use `sudo` for the install command
+```bash
+# Debian/Ubuntu
+sudo apt install cmake
 
-                    * **Build fails:** Ensure you have a C compiler installed
-                      ```bash
-                        # Install GCC
-                          sudo apt install build-essential  # Debian/Ubuntu
-                            sudo dnf install gcc              # Fedora/RHEL
-                              ```
+# Fedora/RHEL
+sudo dnf install cmake
 
-                              ### Uninstallation Issues
+# Arch Linux
+sudo pacman -S cmake
+```
 
-                              * **install_manifest.txt not found:** This file is created during installation. If it's missing, you may need to manually remove the executable:
-                                ```bash
-                                  sudo rm /usr/local/bin/lex
-                                    ```
+**Permission denied during install:** Make sure to use `sudo` for the install command
 
-                                    * **Permission denied:** Remember to use `sudo` for uninstall operations
+**Build fails:** Ensure you have a C compiler installed
 
-                                    ---
+```bash
+# Install GCC
+sudo apt install build-essential  # Debian/Ubuntu
+sudo dnf install gcc              # Fedora/RHEL
+```
 
-                                    ## 📜 License
+### Uninstallation Issues
 
-                                    Lex is distributed under a **Modified MIT License (Non-Commercial)**. You are free to **use, modify, and fork** this project for personal or educational purposes.
+**install_manifest.txt not found:** This file is created during installation. If it's missing, you may need to manually remove the executable:
 
-                                    Commercial redistribution or resale is **not allowed** without written permission from the author.
+```bash
+sudo rm /usr/local/bin/lex
+```
 
-                                    > © 2025 **danko1122q** — All rights reserved.  
-                                    > See the [LICENSE](LICENSE) file for full details.
+**Permission denied:** Remember to use `sudo` for uninstall operations
 
-                                    ---
+---
 
-                                    ## 🙏 Acknowledgments
+## 📜 License
 
-                                    * **GNU Nano** — for inspiring the simplicity and interface design
-                                    * **Open Source Community** — for tools, libraries, and continuous support
-                                    * **Contributors** — who help improve and maintain the project
+Lex is distributed under a **Modified MIT License (Non-Commercial)**. You are free to **use, modify, and fork** this project for personal or educational purposes.
 
-                                    ---
+Commercial redistribution or resale is **not allowed** without written permission from the author.
 
-                                    ## 🔗 Links
+> © 2025 **danko1122q** — All rights reserved.  
+> See the [LICENSE](LICENSE) file for full details.
 
-                                    * **Repository:** [github.com/danko1122q/lex](https://github.com/danko1122q/lex)
-                                    * **Issues:** [Report a bug or request a feature](https://github.com/danko1122q/lex/issues)
-                                    * **Discussions:** [Join the community](https://github.com/danko1122q/LEX/discussions
+---
+
+## 🙏 Acknowledgments
+
+* **GNU Nano** — for inspiring the simplicity and interface design
+* **Open Source Community** — for tools, libraries, and continuous support
+* **Contributors** — who help improve and maintain the project
+
+---
+
+## 🔗 Links
+
+* **Repository:** [github.com/danko1122q/lex](https://github.com/danko1122q/lex)
+* **Issues:** [Report a bug or request a feature](https://github.com/danko1122q/lex/issues)
+* **Discussions:** [Join the community](https://github.com/danko1122q/lex/discussions)
