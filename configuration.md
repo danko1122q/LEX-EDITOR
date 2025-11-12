@@ -54,6 +54,8 @@ If method 1 fails:
 ```bash
 cd build
 sudo make force-uninstall
+rm -rf build
+cd ..
 ```
 
 Removes binary from:
@@ -73,8 +75,10 @@ which lex # Should show nothing
 ## 🧹 Purge (Uninstall + Delete Build)
 
 ```bash
-# Run from project root for safety
-make -C build purge
+# Run from build or root
+sudo make -C build purge
+sudo make purge
+cd ..
 ```
 
 > This runs uninstall first, then deletes the `build/` folder.
