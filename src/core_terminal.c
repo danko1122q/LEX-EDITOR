@@ -1,11 +1,11 @@
-#include "terminal.h"
+#include "core_terminal.h"
 
-#include "config.h"
-#include "editor.h"
-#include "os.h"
-#include "output.h"
-#include "unicode.h"
-#include "utils.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_os.h"
+#include "core_output.h"
+#include "core_unicode.h"
+#include "core_utils.h"
 
 #include <ctype.h>
 #include <signal.h>

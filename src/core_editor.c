@@ -1,9 +1,9 @@
-#include "editor.h"
+#include "core_editor.h"
 
-#include "config.h"
-#include "highlight.h"
-#include "os.h"
-#include "prompt.h"
+#include "core_config.h"
+#include "core_highlight.h"
+#include "core_os.h"
+#include "core_prompt.h"
 
 #include <stdlib.h>
 #include <string.h>

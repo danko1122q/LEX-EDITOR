@@ -11,10 +11,10 @@
 
 #ifdef _WIN32
 #define NL_DEFAULT NL_DOS
-#include "os_win32.h"
+#include "core_win.h"
 #else
 #define NL_DEFAULT NL_UNIX
-#include "os_unix.h"
+#include "core_nix.h"
 #endif
 
 void osInit(void);

@@ -1,7 +1,7 @@
-#include "os_win32.h"
+#include "core_win.h"
 
-#include "os.h"
-#include "terminal.h"
+#include "core_os.h"
+#include "core_terminal.h"
 
 #include <shellapi.h>
 

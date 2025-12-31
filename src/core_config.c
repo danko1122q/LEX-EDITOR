@@ -1,10 +1,10 @@
-#include "config.h"
+#include "core_config.h"
 
-#include "buildnum.h"
-#include "editor.h"
-#include "input.h"
-#include "prompt.h"
-#include "terminal.h"
+#include "core_buildnum.h"
+#include "core_editor.h"
+#include "core_input.h"
+#include "core_prompt.h"
+#include "core_terminal.h"
 
 EditorConCmdArgs args;
 
@@ -32,7 +32,7 @@ CONVAR(ex_show_hidden, "Show hidden files in the file explorer.", "1", cvarExplo
 CONVAR(newline_default, "Set the default EOL sequence (LF/CRLF). 0 is OS default.", "0", NULL);
 CONVAR(ttimeoutlen, "Time in milliseconds to wait for a key code sequence to complete.", "50",
        NULL);
-CONVAR(lilex, "Show line numbers.", "1", NULL);
+CONVAR(lilx, "Show line numbers.", "1", NULL);
 
 static void reloadSyntax(void)
 {
@@ -115,8 +115,8 @@ const ColorElement color_element_map[EDITOR_COLOR_COUNT] = {
     {"status.pos.fg", &gEditor.color_cfg.status[4]},
     {"status.pos.bg", &gEditor.color_cfg.status[5]},
 
-    {"lilex.fg", &gEditor.color_cfg.line_number[0]},
-    {"lilex.bg", &gEditor.color_cfg.line_number[1]},
+    {"lilx.fg", &gEditor.color_cfg.line_number[0]},
+    {"lilx.bg", &gEditor.color_cfg.line_number[1]},
 
     {"cursorline", &gEditor.color_cfg.cursor_line},
 
@@ -802,7 +802,7 @@ void editorRegisterCommands(void)
   INIT_CONVAR(ex_show_hidden);
   INIT_CONVAR(newline_default);
   INIT_CONVAR(ttimeoutlen);
-  INIT_CONVAR(lilex);
+  INIT_CONVAR(lilx);
 
   INIT_CONCOMMAND(color);
   INIT_CONCOMMAND(lang);

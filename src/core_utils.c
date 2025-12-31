@@ -1,7 +1,7 @@
-#include "utils.h"
+#include "core_utils.h"
 
-#include "os.h"
-#include "terminal.h"
+#include "core_os.h"
+#include "core_terminal.h"
 
 #include <ctype.h>
 #include <limits.h>
@@ -612,7 +612,6 @@ int strToInt(const char *str)
   return result;
 }
 
-// https://opensource.apple.com/source/QuickTimeStreamingServer/QuickTimeStreamingServer-452/CommonUtilitiesLib/base64.c
 
 // Tabel karakter untuk encoding Base64
 static const char basis_64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";

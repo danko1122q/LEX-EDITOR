@@ -1,7 +1,7 @@
 #ifndef FILE_IO_H
 #define FILE_IO_H
 
-#include "utils.h"
+#include "core_utils.h"
 
 typedef struct EditorExplorerNodeData
 {

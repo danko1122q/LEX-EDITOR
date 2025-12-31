@@ -1,7 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include "select.h"
+#include "core_select.h"
 
 /**
  * struct EditorCursor - Represents the cursor position and selection state

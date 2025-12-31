@@ -1,6 +1,6 @@
-#include "action.h"
+#include "core_action.h"
 
-#include "editor.h"
+#include "core_editor.h"
 
 /**
  * editorUndo - Undo the last action performed in the editor

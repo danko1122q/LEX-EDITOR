@@ -1,4 +1,4 @@
-#include "buildnum.h"
+#include "core_buildnum.h"
 
 // Build date and time from compiler macros
 const char *editor_build_date = __DATE__;

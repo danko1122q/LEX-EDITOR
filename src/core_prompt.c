@@ -1,11 +1,11 @@
-#include "prompt.h"
+#include "core_prompt.h"
 
-#include "editor.h"
-#include "input.h"
-#include "output.h"
-#include "prompt.h"
-#include "terminal.h"
-#include "unicode.h"
+#include "core_editor.h"
+#include "core_input.h"
+#include "core_output.h"
+#include "core_prompt.h"
+#include "core_terminal.h"
+#include "core_unicode.h"
 
 #include <ctype.h>
 #include <stdarg.h>

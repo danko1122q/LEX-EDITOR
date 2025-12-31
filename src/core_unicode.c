@@ -1,4 +1,4 @@
-#include "unicode.h"
+#include "core_unicode.h"
 
 struct interval
 {

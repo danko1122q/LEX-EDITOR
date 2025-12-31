@@ -1,13 +1,13 @@
-#include "buildnum.h"
-#include "config.h"
-#include "editor.h"
-#include "file_io.h"
-#include "input.h"
-#include "opt.h"
-#include "output.h"
-#include "prompt.h"
-#include "row.h"
-#include "terminal.h"
+#include "core_buildnum.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_file_io.h"
+#include "core_input.h"
+#include "core_opt.h"
+#include "core_output.h"
+#include "core_prompt.h"
+#include "core_row.h"
+#include "core_terminal.h"
 
 int main(int argc, char *argv[])
 {

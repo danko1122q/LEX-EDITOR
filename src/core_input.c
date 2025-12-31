@@ -1,14 +1,14 @@
-#include "input.h"
+#include "core_input.h"
 
-#include "config.h"
-#include "editor.h"
-#include "file_io.h"
-#include "output.h"
-#include "prompt.h"
-#include "select.h"
-#include "terminal.h"
-#include "unicode.h"
-#include "utils.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_file_io.h"
+#include "core_output.h"
+#include "core_prompt.h"
+#include "core_select.h"
+#include "core_terminal.h"
+#include "core_unicode.h"
+#include "core_utils.h"
 
 #include <ctype.h>
 
@@ -240,7 +240,7 @@ static bool editorExplorerProcessKeypress(EditorInput input)
 
 void editorScrollToCursor(void)
 {
-  int cols = gEditor.screen_cols - gEditor.explorer.width - LILEX_WIDTH();
+  int cols = gEditor.screen_cols - gEditor.explorer.width - LICORE_WIDTH();
   int rx   = 0;
   if (gCurFile->cursor.y < gCurFile->num_rows)
   {
@@ -288,8 +288,8 @@ int getMousePosField(int x, int y)
     return FIELD_EXPLORER;
   if (gEditor.file_count == 0)
     return FIELD_EMPTY;
-  if (x < gEditor.explorer.width + LILEX_WIDTH())
-    return FIELD_LILEX;
+  if (x < gEditor.explorer.width + LICORE_WIDTH())
+    return FIELD_LILX;
   return FIELD_TEXT;
 }
 
@@ -309,7 +309,7 @@ void mousePosToEditorPos(int *x, int *y)
     return;
   }
 
-  int col = *x - gEditor.explorer.width - LILEX_WIDTH() + gCurFile->col_offset;
+  int col = *x - gEditor.explorer.width - LICORE_WIDTH() + gCurFile->col_offset;
   if (col < 0)
   {
     col = 0;
@@ -768,11 +768,11 @@ void editorProcessKeypress(void)
       if (gCurFile->dirty || !gCurFile->filename)
       {
         editorSave(gCurFile, 0);
-        editorMsg("File disimpan. Tekan Enter untuk melanjutkan.");
+        editorMsg("Files saved. Press Enter to continue.");
       }
       else
       {
-        editorMsg("Tidak ada perubahan yang perlu disimpan. Tekan Enter untuk melanjutkan.");
+        editorMsg("No changes need to be saved. Press Enter to continue.");
       }
       waiting_for_enter_after_save = true;
       editorFreeAction(action);
@@ -1486,7 +1486,7 @@ void editorProcessKeypress(void)
           editorExplorerProcessKeypress(input);
           break;
 
-        case FIELD_LILEX:
+        case FIELD_LILX:
         {
           should_scroll = false;
           mouse_click   = 0;
@@ -1495,7 +1495,7 @@ void editorProcessKeypress(void)
             row = 0;
           if (row >= gCurFile->num_rows)
             row = gCurFile->num_rows - 1;
-          mouse_pressed = FIELD_LILEX;
+          mouse_pressed = FIELD_LILX;
           pressed_row   = row;
           editorSelectLine(row);
         }
@@ -1528,7 +1528,7 @@ void editorProcessKeypress(void)
       {
         editorMoveMouse(curr_x, curr_y);
       }
-      else if (mouse_pressed == FIELD_LILEX)
+      else if (mouse_pressed == FIELD_LILX)
       {
         int col = 0;
         int row = curr_y;
@@ -1542,7 +1542,7 @@ void editorProcessKeypress(void)
     {
       int field     = getMousePosField(x, y);
       should_scroll = false;
-      if (field != FIELD_TEXT && field != FIELD_LILEX)
+      if (field != FIELD_TEXT && field != FIELD_LILX)
       {
         if (field == FIELD_TOP_STATUS)
         {
@@ -1564,7 +1564,7 @@ void editorProcessKeypress(void)
       {
         editorMoveMouse(curr_x, curr_y);
       }
-      else if (mouse_pressed == FIELD_LILEX)
+      else if (mouse_pressed == FIELD_LILX)
       {
         int col = 0;
         int row = curr_y;
@@ -1578,7 +1578,7 @@ void editorProcessKeypress(void)
     {
       int field     = getMousePosField(x, y);
       should_scroll = false;
-      if (field != FIELD_TEXT && field != FIELD_LILEX)
+      if (field != FIELD_TEXT && field != FIELD_LILX)
       {
         if (field == FIELD_TOP_STATUS)
         {
@@ -1599,7 +1599,7 @@ void editorProcessKeypress(void)
       {
         editorMoveMouse(curr_x, curr_y);
       }
-      else if (mouse_pressed == FIELD_LILEX)
+      else if (mouse_pressed == FIELD_LILX)
       {
         int col = 0;
         int row = curr_y;

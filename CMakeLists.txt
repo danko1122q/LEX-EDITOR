@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
-project(lex VERSION 0.5.2 LANGUAGES C)
+# Ganti project name jika ingin rebranding dari 'lex' ke yang lain
+project(lex VERSION 0.1.0 LANGUAGES C)
 
-# Include standard GNU installation directories (bin, lib, share, etc.)
 include(GNUInstallDirs)
 
 set(CMAKE_C_STANDARD 11)
 
 # -------------------------------------------------------------------
-# Bundler Logic (Compiles syntax files into bundle.h)
+# Bundler Logic
 # -------------------------------------------------------------------
 set(RESOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/resources")
 
@@ -45,39 +45,38 @@ add_custom_command(
     VERBATIM
 )
 
-add_custom_target(generate_bundle ALL
-    DEPENDS ${BUNDLED_FILE}
-)
+add_custom_target(generate_bundle ALL DEPENDS ${BUNDLED_FILE})
 
 # -------------------------------------------------------------------
-# Core Sources
+# Core Sources (Updated to core_ prefix)
 # -------------------------------------------------------------------
 set(CORE_SOURCES
-    src/action.c src/action.h
-    src/buildnum.c src/buildnum.h
-    src/config.c src/config.h
-    src/common.h
-    src/editor.c src/editor.h
-    src/file_io.c src/file_io.h
-    src/highlight.c src/highlight.h
-    src/input.c src/input.h
-    src/json.h
-    src/lex.c
-    src/opt.h
-    src/os.h
-    src/output.c src/output.h
-    src/prompt.c src/prompt.h
-    src/row.c src/row.h
-    src/select.c src/select.h
-    src/terminal.c src/terminal.h
-    src/unicode.c src/unicode.h
-    src/utils.c src/utils.h
+    src/core_action.c src/core_action.h
+    src/core_buildnum.c src/core_buildnum.h
+    src/core_config.c src/core_config.h
+    src/core_common.h
+    src/core_editor.c src/core_editor.h
+    src/core_file_io.c src/core_file_io.h
+    src/core_highlight.c src/core_highlight.h
+    src/core_input.c src/core_input.h
+    src/core_json.h
+    src/core_main.c
+    src/core_opt.h
+    src/core_os.h
+    src/core_output.c src/core_output.h
+    src/core_prompt.c src/core_prompt.h
+    src/core_row.c src/core_row.h
+    src/core_select.c src/core_select.h
+    src/core_terminal.c src/core_terminal.h
+    src/core_unicode.c src/core_unicode.h
+    src/core_utils.c src/core_utils.h
 )
 
+# Logic for OS specific files
 if (WIN32)
-    list(APPEND CORE_SOURCES src/os_win32.c src/os_win32.h)
+    list(APPEND CORE_SOURCES src/core_win.c src/core_win.h)
 else()
-    list(APPEND CORE_SOURCES src/os_unix.c src/os_unix.h)
+    list(APPEND CORE_SOURCES src/core_nix.c src/core_nix.h)
 endif()
 
 add_executable(${PROJECT_NAME} ${CORE_SOURCES} ${BUNDLED_FILE})
@@ -87,7 +86,7 @@ add_dependencies(${PROJECT_NAME} generate_bundle)
 # Build Number Logic
 # -------------------------------------------------------------------
 add_custom_target(file_toucher
-    COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/src/buildnum.c
+    COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/src/core_buildnum.c
 )
 add_dependencies(${PROJECT_NAME} file_toucher)
 
@@ -99,7 +98,8 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
     EDITOR_VERSION="${CMAKE_PROJECT_VERSION}"
 )
 
-set(COMMON_HEADER "${CMAKE_SOURCE_DIR}/src/common.h")
+# Header guard otomatis menggunakan core_common.h
+set(COMMON_HEADER "${CMAKE_SOURCE_DIR}/src/core_common.h")
 if (MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /W4 /wd4244 /wd4267 /wd4996 /FI "${COMMON_HEADER}")
 else()
@@ -113,13 +113,10 @@ install(TARGETS ${PROJECT_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     COMPONENT runtime
 )
-message(STATUS "Binary will be installed to: ${CMAKE_INSTALL_FULL_BINDIR}/${PROJECT_NAME}")
 
 # -------------------------------------------------------------------
-# Custom Targets: UNINSTALL / FORCE_UNINSTALL / CHECK_INSTALL / PURGE
+# Custom Targets (Uninstall, Force-Uninstall, etc.)
 # -------------------------------------------------------------------
-
-# Uninstall target
 if(NOT TARGET uninstall)
     set(CMAKE_INSTALL_MANIFEST_FILE "${CMAKE_CURRENT_BINARY_DIR}/install_manifest.txt")
     configure_file(
@@ -130,57 +127,18 @@ if(NOT TARGET uninstall)
     add_custom_target(uninstall
         COMMAND ${CMAKE_COMMAND} -P "${CMAKE_CURRENT_BINARY_DIR}/uninstall.cmake"
         USES_TERMINAL
-        COMMENT "Removing installed files based on install_manifest.txt..."
+        COMMENT "Removing installed files..."
     )
-    message(STATUS "Uninstall target created. Run 'sudo make uninstall' to remove installed files.")
 endif()
 
-# Force uninstall
 add_custom_target(force-uninstall
-    COMMAND ${CMAKE_COMMAND} -E echo "Force removing binary from install locations..."
     COMMAND ${CMAKE_COMMAND} -E remove -f "${CMAKE_INSTALL_FULL_BINDIR}/${PROJECT_NAME}"
     COMMAND ${CMAKE_COMMAND} -E remove -f "/usr/local/bin/${PROJECT_NAME}"
     COMMAND ${CMAKE_COMMAND} -E remove -f "/usr/bin/${PROJECT_NAME}"
-    COMMAND ${CMAKE_COMMAND} -E echo "Force uninstall complete."
-    USES_TERMINAL
+    COMMENT "Force uninstall complete."
 )
-message(STATUS "Force-uninstall target created. Run 'sudo make force-uninstall'.")
 
-# Check-install target
 add_custom_target(check-install
-    COMMAND ${CMAKE_COMMAND} -E echo "Checking installation locations for ${PROJECT_NAME}..."
-    COMMAND ${CMAKE_COMMAND} -E echo_append "PATH: "
-    COMMAND ${CMAKE_COMMAND} -E env bash -c "command -v ${PROJECT_NAME} || echo 'Not found'"
-    COMMAND ${CMAKE_COMMAND} -E echo "Binary in ${CMAKE_INSTALL_FULL_BINDIR}:"
-    COMMAND ${CMAKE_COMMAND} -E env bash -c "[ -f '${CMAKE_INSTALL_FULL_BINDIR}/${PROJECT_NAME}' ] && echo Found || echo Not found"
-    USES_TERMINAL
+    COMMAND ${CMAKE_COMMAND} -E echo "Checking installation for ${PROJECT_NAME}..."
+    COMMAND ${CMAKE_COMMAND} -E env bash -c "command -v ${PROJECT_NAME} || echo 'Not found in PATH'"
 )
-message(STATUS "Check-install target created. Run 'make check-install'.")
-
-# Purge target (safe from folder outside)
-add_custom_target(purge
-    COMMENT "Purging build directory after uninstalling..."
-)
-add_dependencies(purge uninstall)
-add_custom_command(TARGET purge POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E remove_directory "${CMAKE_CURRENT_BINARY_DIR}"
-)
-message(STATUS "Purge target created. Run 'make purge' from project root to uninstall and delete build folder safely.")
-
-# -------------------------------------------------------------------
-# Build Information
-# -------------------------------------------------------------------
-message(STATUS "")
-message(STATUS "=== Build Configuration ===")
-message(STATUS "Project: ${PROJECT_NAME} v${CMAKE_PROJECT_VERSION}")
-message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
-message(STATUS "Binary install dir: ${CMAKE_INSTALL_FULL_BINDIR}")
-message(STATUS "")
-message(STATUS "=== Available Targets ===")
-message(STATUS "  make              - Build the project")
-message(STATUS "  sudo make install - Install to ${CMAKE_INSTALL_FULL_BINDIR}")
-message(STATUS "  make check-install - Check where binary is installed")
-message(STATUS "  sudo make uninstall - Remove installed files")
-message(STATUS "  sudo make force-uninstall - Force remove binary")
-message(STATUS "  make purge        - Uninstall and delete build directory")
-message(STATUS "==========================")

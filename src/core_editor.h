@@ -9,17 +9,17 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
-#include "action.h"   // Undo/redo action structures
-#include "config.h"   // Configuration settings
-#include "file_io.h"  // File I/O operations
-#include "os.h"       // Operating system abstraction layer
-#include "row.h"      // Text row/line structures
-#include "select.h"   // Text selection structures
+#include "core_action.h"   // Undo/redo action structures
+#include "core_config.h"   // Configuration settings
+#include "core_file_io.h"  // File I/O operations
+#include "core_os.h"       // Operating system abstraction layer
+#include "core_row.h"      // Text row/line structures
+#include "core_select.h"   // Text selection structures
 
 /*
  * Maximum File Slots
  * The editor can have up to 32 files open simultaneously (like browser tabs)
- * This creates a fixed-size array to avoid dynamic allocation complexity
+ * This creates a fixed-size array to avoid dynamic allocation complxity
  */
 #define EDITOR_FILE_MAX_SLOT 32
 
@@ -105,11 +105,11 @@ typedef struct EditorFile
   /*
    * File Dimensions
    * num_rows: Total number of lines in the file
-   * lilex_width: Width of line number column (e.g., 5 chars for line "99999")
+   * licore_width: Width of line number column (e.g., 5 chars for line "99999")
    *              Name suggests "Line Index Width"
    */
   int num_rows;
-  int lilex_width;
+  int licore_width;
 
   /*
    * Line Ending Type

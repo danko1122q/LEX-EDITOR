@@ -1,11 +1,11 @@
-#include "file_io.h"
+#include "core_file_io.h"
 
-#include "config.h"
-#include "editor.h"
-#include "highlight.h"
-#include "output.h"
-#include "prompt.h"
-#include "row.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_highlight.h"
+#include "core_output.h"
+#include "core_prompt.h"
+#include "core_row.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -195,7 +195,7 @@ bool editorOpen(EditorFile *file, const char *path)
     at++;
   }
 
-  file->lilex_width = getDigit(file->num_rows) + 2;
+  file->licore_width = getDigit(file->num_rows) + 2;
 
   if (has_end_nl)
   {

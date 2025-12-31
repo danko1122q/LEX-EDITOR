@@ -2,10 +2,10 @@
 #define OUTPUT_H
 
 /**
- * LILEX_WIDTH - Get the width of line number column
+ * LICORE_WIDTH - Get the width of line number column
  *
  * Returns the width occupied by line numbers in the editor if
- * line numbers are enabled (lilex config variable), otherwise returns 0.
+ * line numbers are enabled (lilx config variable), otherwise returns 0.
  *
  * This macro is used to calculate column offsets when drawing text,
  * since line numbers take up space on the left side of the editor.
@@ -13,13 +13,13 @@
  * Returns: Width in characters of the line number column, or 0 if disabled
  *
  * Example:
- *   If lilex is enabled and file has 1000 lines:
+ *   If lilx is enabled and file has 1000 lines:
  *     - Line number column needs 6 chars: " 1000 "
- *     - LILEX_WIDTH() returns 6
- *   If lilex is disabled:
- *     - LILEX_WIDTH() returns 0
+ *     - LICORE_WIDTH() returns 6
+ *   If lilx is disabled:
+ *     - LICORE_WIDTH() returns 0
  */
-#define LILEX_WIDTH() (CONVAR_GETINT(lilex) ? gCurFile->lilex_width : 0)
+#define LICORE_WIDTH() (CONVAR_GETINT(lilx) ? gCurFile->licore_width : 0)
 
 /**
  * editorRefreshScreen - Refresh and redraw the entire screen

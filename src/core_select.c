@@ -1,10 +1,10 @@
-#include "select.h"
+#include "core_select.h"
 
-#include "config.h"
-#include "editor.h"
-#include "os.h"
-#include "row.h"
-#include "utils.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_os.h"
+#include "core_row.h"
+#include "core_utils.h"
 
 void getSelectStartEnd(EditorSelectRange *range)
 {
@@ -71,7 +71,7 @@ void editorDeleteText(EditorSelectRange range)
     gCurFile->num_rows -= removed_rows;
     gCurFile->cursor.y -= removed_rows;
 
-    gCurFile->lilex_width = getDigit(gCurFile->num_rows) + 2;
+    gCurFile->licore_width = getDigit(gCurFile->num_rows) + 2;
   }
   while (gCurFile->cursor.y != range.start_y || gCurFile->cursor.x != range.start_x)
   {

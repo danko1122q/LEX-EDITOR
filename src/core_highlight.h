@@ -1,7 +1,7 @@
 #ifndef HIGHLIGHT_H
 #define HIGHLIGHT_H
 
-#include "utils.h"
+#include "core_utils.h"
 
 // Forward declarations to avoid circular dependencies
 typedef struct EditorFile EditorFile;
@@ -159,7 +159,7 @@ void editorSelectSyntaxHighlight(EditorFile *file);
  * Loads all syntax definitions from multiple sources:
  * 1. Built-in editor config syntax
  * 2. Bundled syntax files (compiled into binary)
- * 3. User syntax files from ~/.config/lex/syntax/ directory
+ * 3. User syntax files from ~/.config/lx/syntax/ directory
  *
  * This function should be called once during editor initialization.
  */

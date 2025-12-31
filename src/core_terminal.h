@@ -1,7 +1,7 @@
 #ifndef TERMINAL_H
 #define TERMINAL_H
 
-#include "select.h"
+#include "core_select.h"
 
 // ANSI escape sequences
 #define ANSI_CLEAR "\x1b[m"

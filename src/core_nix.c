@@ -1,8 +1,8 @@
-#include "os_unix.h"
+#include "core_nix.h"
 
-#include "os.h"
-#include "terminal.h"
-#include "utils.h"
+#include "core_os.h"
+#include "core_terminal.h"
+#include "core_utils.h"
 
 #include <fcntl.h>
 #include <poll.h>

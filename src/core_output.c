@@ -1,12 +1,12 @@
-#include "output.h"
+#include "core_output.h"
 
-#include "config.h"
-#include "editor.h"
-#include "highlight.h"
-#include "os.h"
-#include "select.h"
-#include "terminal.h"
-#include "unicode.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_highlight.h"
+#include "core_os.h"
+#include "core_select.h"
+#include "core_terminal.h"
+#include "core_unicode.h"
 
 #include <ctype.h>
 
@@ -411,7 +411,7 @@ static void editorDrawRows(abuf *ab)
     if (i < gCurFile->num_rows)
     {
       // Draw line numbers if enabled
-      if (CONVAR_GETINT(lilex))
+      if (CONVAR_GETINT(lilx))
       {
         char line_number[16];
         
@@ -433,7 +433,7 @@ static void editorDrawRows(abuf *ab)
         }
 
         // Format and draw line number (1-indexed)
-        len = snprintf(line_number, sizeof(line_number), " %*d ", gCurFile->lilex_width - 2,
+        len = snprintf(line_number, sizeof(line_number), " %*d ", gCurFile->licore_width - 2,
                        i + 1);
 
         abufAppendN(ab, line_number, len);
@@ -444,7 +444,7 @@ static void editorDrawRows(abuf *ab)
       setColor(ab, gEditor.color_cfg.bg, 1);
 
       // Calculate visible columns and starting position
-      int cols       = gEditor.screen_cols - gEditor.explorer.width - LILEX_WIDTH();
+      int cols       = gEditor.screen_cols - gEditor.explorer.width - LICORE_WIDTH();
       int col_offset = editorRowRxToCx(&gCurFile->row[i], gCurFile->col_offset);
       len            = gCurFile->row[i].size - col_offset;
       len            = (len < 0) ? 0 : len;
@@ -721,7 +721,7 @@ void editorRefreshScreen(void)
     // Calculate screen column (accounting for tabs, explorer, line numbers)
     int col = (editorRowCxToRx(&gCurFile->row[gCurFile->cursor.y], gCurFile->cursor.x) -
                gCurFile->col_offset) +
-              1 + LILEX_WIDTH();
+              1 + LICORE_WIDTH();
     
     // Hide cursor if it's outside visible area
     if (row <= 1 || row > gEditor.screen_rows - 1 || col <= 0 ||

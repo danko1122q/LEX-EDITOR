@@ -1,7 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include "highlight.h"
+#include "core_highlight.h"
 
 #define EDITOR_CONFIG_EXT "." EDITOR_NAME
 #define EDITOR_RC_FILE EDITOR_NAME "rc"
@@ -101,7 +101,7 @@ EXTERN_CONVAR(ex_default_width);
 EXTERN_CONVAR(ex_show_hidden);
 EXTERN_CONVAR(newline_default);
 EXTERN_CONVAR(ttimeoutlen);
-EXTERN_CONVAR(lilex);
+EXTERN_CONVAR(lilx);
 
 void editorRegisterCommands(void);
 void editorUnregisterCommands(void);

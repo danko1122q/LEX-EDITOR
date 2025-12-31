@@ -1,9 +1,9 @@
-#include "row.h"
+#include "core_row.h"
 
-#include "editor.h"
-#include "highlight.h"
-#include "unicode.h"
-#include "utils.h"
+#include "core_editor.h"
+#include "core_highlight.h"
+#include "core_unicode.h"
+#include "core_utils.h"
 
 static inline bool ensureCapacity(size_t capacity, size_t size, size_t *new_capacity)
 {
@@ -58,7 +58,7 @@ void editorInsertRow(EditorFile *file, int at, const char *s, size_t len)
   editorRowAppendString(file, &file->row[at], s, len);
 
   file->num_rows++;
-  file->lilex_width = getDigit(file->num_rows) + 2;
+  file->licore_width = getDigit(file->num_rows) + 2;
 }
 
 void editorFreeRow(EditorRow *row)
@@ -75,7 +75,7 @@ void editorDelRow(EditorFile *file, int at)
   memmove(&file->row[at], &file->row[at + 1], sizeof(EditorRow) * (file->num_rows - at - 1));
 
   file->num_rows--;
-  file->lilex_width = getDigit(file->num_rows) + 2;
+  file->licore_width = getDigit(file->num_rows) + 2;
 }
 
 void editorRowInsertChar(EditorFile *file, EditorRow *row, int at, int c)

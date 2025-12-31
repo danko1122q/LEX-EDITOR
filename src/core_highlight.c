@@ -1,16 +1,16 @@
-#include "highlight.h"
+#include "core_highlight.h"
 
 #include "../resources/bundle.h"
-#include "config.h"
-#include "editor.h"
-#include "os.h"
+#include "core_config.h"
+#include "core_editor.h"
+#include "core_os.h"
 
 #include <ctype.h>
 
 // JSON parser configuration
 #define JSON_IMPLEMENTATION
 #define JSON_MALLOC malloc_s
-#include "json.h"
+#include "core_json.h"
 
 /**
  * editorUpdateSyntax - Update syntax highlighting for a single row
@@ -345,7 +345,7 @@ static void editorLoadBundledHLDB(void);
  * Loads all syntax definitions from:
  * 1. Built-in editor config syntax
  * 2. Bundled syntax files (compiled into binary)
- * 3. User syntax files from ~/.config/lex/syntax/ (*.json files)
+ * 3. User syntax files from ~/.config/lx/syntax/ (*.json files)
  */
 void editorInitHLDB(void)
 {
@@ -391,7 +391,7 @@ void editorInitHLDB(void)
  * loadEditorConfigHLDB - Load built-in syntax for editor config files
  * 
  * Creates a syntax definition for the editor's own configuration files
- * (.lexrc and .lexconfig). Keywords include all config variables and
+ * (.lxrc and .lxconfig). Keywords include all config variables and
  * color settings.
  */
 static void loadEditorConfigHLDB(void)
@@ -568,7 +568,7 @@ static void editorLoadBundledHLDB(void)
  * @path: Path to JSON syntax definition file
  * 
  * Loads and parses a syntax definition from a JSON file on disk.
- * Used to load user-defined syntax files from ~/.config/lex/syntax/
+ * Used to load user-defined syntax files from ~/.config/lx/syntax/
  * 
  * Returns: true if loading succeeded, false otherwise
  */
